@@ -1,0 +1,302 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>&#x30dd;&#x30b1;&#x30b9;&#x30ea; &#x6599;&#x7406;&#x8a08;&#x753b;&#x30fb;&#x5099;&#x84c4;&#x30d7;&#x30e9;&#x30f3;&#x30ca;&#x30fc;</title>
+<style>
+:root{--bg:#f6f5f8;--fg:#222;--card:#fff;--bd:#c9c5d3;--ac:#6b5bd2;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1c1b22;--fg:#eee;--card:#2a2833;--bd:#4a4757;--ac:#a79cff}}
+:root[data-theme="dark"]{--bg:#1c1b22;--fg:#eee;--card:#2a2833;--bd:#4a4757;--ac:#a79cff}
+body{margin:0;padding:10px;background:var(--bg);color:var(--fg);font:14px/1.5 'Hiragino Sans','Noto Sans JP',sans-serif}
+h1{font-size:18px;margin:4px 0 8px}
+.bar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:8px 0}
+button,select,input[type=text]{font:inherit}
+.b{background:var(--ac);color:#fff;border:0;border-radius:8px;padding:6px 12px}
+.g{background:var(--card);color:var(--fg);border:1px solid var(--bd);border-radius:8px;padding:6px 12px}
+.w{overflow-x:auto;background:var(--card);border:1px solid var(--bd);border-radius:8px}
+table{border-collapse:collapse;color:#222;font-size:12px}
+tr{background:#fff}
+td,th{border:1px solid #333;padding:0;height:24px;min-width:54px;text-align:right}
+th.l{position:sticky;left:0;background:inherit;min-width:214px;text-align:left;padding:0 4px;z-index:1;font-weight:400}
+table input{width:100%;box-sizing:border-box;border:0;background:transparent;color:#222;text-align:right;font:inherit;padding:2px 3px;min-width:0}
+th.l input{text-align:left}
+td.t{padding:0 4px;font-weight:600}
+.c0{background:#fde3d3}.c1{background:#dcf0d0}.c2{background:#f0d3f0}.s{background:#eee}
+.u,.n,.x{font-weight:700;cursor:pointer;padding:0 4px}.u{color:#000}.n{color:#999}.x{color:#d00}
+table select{width:100%;border:0;background:transparent;color:#222;font:inherit;padding:2px 0}
+select.mk{appearance:none;-webkit-appearance:none;text-align:center;text-align-last:center}
+.pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:4px;margin:8px 0}.pg label{font-size:12px}.pg input{width:100%;box-sizing:border-box}
+h2{font-size:15px;margin:12px 0 4px}.pt td,.pt th{min-width:60px;text-align:center}.pt input[type=checkbox]{width:auto}.sum2{font-size:12px;margin:2px 0 6px}.dy{font-size:10px;color:#666;min-width:34px;white-space:nowrap}tr.dv>th,tr.dv>td{border-top:3px solid #333}input.pi{font-size:10.5px;text-align:center}input:disabled{background:#ddd}
+button.mk:disabled{opacity:.3}
+.mk{width:100%;border:0;background:none;color:#222;font:inherit;height:22px}
+#out,#out2{display:none;max-width:100%;border:1px solid var(--bd);border-radius:8px;margin-top:8px;background:#fff}
+textarea{width:100%;height:70px;box-sizing:border-box;background:var(--card);color:var(--fg);border:1px solid var(--bd)}
+.sum{font-weight:700;margin:6px 0}
+</style></head><body>
+<h1>&#x30dd;&#x30b1;&#x30b9;&#x30ea; &#x6599;&#x7406;&#x8a08;&#x753b;&#x30fb;&#x5099;&#x84c4;&#x30d7;&#x30e9;&#x30f3;&#x30ca;&#x30fc;</h1>
+<div class="bar"><input id="ti" type="text" size="22" oninput="S.t=this.value;save()"> <label><input type="checkbox" id="au" onchange="S.auto=this.checked;render()"> &#x5099;&#x84c4;&#x6570;&#x3092;&#x6599;&#x7406;&#x8a08;&#x753b;&#x304b;&#x3089;&#x81ea;&#x52d5;&#x8a08;&#x7b97;</label></div>
+<h2>&#x81ea;&#x52d5;&#x6700;&#x9069;&#x5316;</h2>
+<div class="bar">&#x5099;&#x84c4;&#x6570;&#x5408;&#x8a08; <input id="ot" type="number" min="0" style="width:80px" onchange="osv()"> &#x4ee5;&#x4e0a; <input id="ox" type="number" min="0" style="width:80px" onchange="osv()"> &#x4ee5;&#x4e0b;(0=&#x4e0a;&#x9650;&#x306a;&#x3057;) / &#x5e73;&#x5747;&#x57fa;&#x790e;E &#x2265; <input id="oa" type="number" min="0" style="width:70px" onchange="osv()"> &#x65e5;&#x6570; <input id="od" type="number" min="1" style="width:56px" onchange="osv()"> <label><input type="checkbox" id="oh" onchange="osv()"> &#x5404;&#x30b5;&#x30d6;&#x8868;&#x306b;&#x30d2;&#x30fc;&#x30e9;&#x30fc;&#x3092;&#x6700;&#x4f4e;1&#x4f53;&#x542b;&#x3081;&#x308b;</label> <label><input type="checkbox" id="on" onchange="osv()"> &#x5404;&#x30b5;&#x30d6;&#x8868;&#x306b;&#x934b;&#x62e1;&#x5f35;&#x67a0;&#x3092;&#x6700;&#x4f4e;1&#x67a0;&#x542b;&#x3081;&#x308b;</label> &#x3070;&#x3089;&#x3064;&#x304d;&#x6291;&#x6b62;&#x5b9a;&#x6570;T <input id="ov" type="number" min="0" max="100" style="width:60px" onchange="osv()">% <button class="b" id="ob" onclick="opt()">&#x81ea;&#x52d5;&#x3067;&#x6c7a;&#x3081;&#x308b;</button></div>
+<div class="bar"><label><input type="checkbox" id="osd" onchange="osv();render()"> &#x81ea;&#x52d5;&#x3067;&#x964d;&#x9806;(&#x6599;&#x7406;E&#x3092;&#x30ab;&#x30c6;&#x30b4;&#x30ea;&#x5185;&#x3067;&#x964d;&#x9806;&#x306b;&#x6574;&#x5217;)</label> <label><input type="checkbox" id="ody" onchange="osv();render()"> &#x30b5;&#x30d6;&#x8868;&#x306e;&#x30dd;&#x30b1;&#x30e2;&#x30f3;&#x304c;1&#x65e5;&#x3067;&#x62fe;&#x3048;&#x308b;&#x98df;&#x6750;&#x91cf;&#x3092;&#x8003;&#x616e;</label> <label><input type="checkbox" id="ofm" onchange="osv();render()"> 1&#x98df;&#x76ee;&#x306f;&#x5099;&#x84c4;&#x3059;&#x308b;</label></div>
+<div class="bar"><label><input type="checkbox" id="oex" onchange="osv()"> &#x904e;&#x5270;&#x306a;&#x98df;&#x6750;&#x7a2e;&#x3092;</label><input id="oen" type="number" min="0" max="20" style="width:56px" onchange="osv()">&#x7a2e;&#x985e;&#x4ee5;&#x4e0b;&#x306b;&#x6291;&#x3048;&#x308b;(&#x904e;&#x5270;&#x5224;&#x5b9a;: &#x62fe;&#x3046;&#x91cf;&#x304c;(&#x5fc5;&#x8981;&#x91cf;&#x2212;&#x5099;&#x84c4;)&#x306e;<input id="oem" type="number" min="0" step="0.1" style="width:60px" onchange="osv()">&#x500d;&#x3092;&#x8d85;&#x3048;&#x308b;)</div>
+<div class="bar">&#x98df;&#x6750;&#x5225;&#x306e;&#x5099;&#x84c4;&#x4e0a;&#x9650;(&#x6700;&#x5927;3&#x98df;&#x6750;&#x30fb;&#x7a7a;&#x6b04;=&#x4e0a;&#x9650;&#x306a;&#x3057;): <select id="ci0" onchange="osv()"></select> &#x2264; <input id="cv0" type="number" min="0" style="width:64px" onchange="osv()"> <select id="ci1" onchange="osv()"></select> &#x2264; <input id="cv1" type="number" min="0" style="width:64px" onchange="osv()"> <select id="ci2" onchange="osv()"></select> &#x2264; <input id="cv2" type="number" min="0" style="width:64px" onchange="osv()"></div>
+<div class="bar">&#x6599;&#x7406;&#x6570;(&#x5404;&#x30ab;&#x30c6;&#x30b4;&#x30ea;) <input id="oq" type="number" min="1" style="width:64px" onchange="osv()"> <button class="b" id="ob2" onclick="opt2()">&#x73fe;&#x5728;&#x306e;&#x30b5;&#x30d6;&#x8868;&#x3092;&#x56fa;&#x5b9a;&#x3057;&#x3066;&#x6599;&#x7406;&#x8a08;&#x753b;&#x3092;&#x81ea;&#x52d5;&#x751f;&#x6210;</button></div>
+<div class="sum2" id="or"></div>
+<h2>&#x30dc;&#x30c3;&#x30af;&#x30b9;&#x8868;(&#x30dd;&#x30b1;&#x30e2;&#x30f3;&#x5019;&#x88dc;&#x30fb;&#x6700;&#x5927;5&#x3064;)</h2>
+<div id="bxs"></div>
+<div class="bar"><button class="b" id="bnew" onclick="bnew()">&#x30dc;&#x30c3;&#x30af;&#x30b9;&#x8868;&#x3092;&#x8ffd;&#x52a0;</button></div>
+<h2>&#x4f7f;&#x7528;&#x30dd;&#x30b1;&#x30e2;&#x30f3;(&#x30b5;&#x30d6;&#x8868;: &#x6599;&#x7406;&#x30ab;&#x30c6;&#x30b4;&#x30ea;&#x5225;)</h2>
+<div id="pts"></div>
+<div class="bar"><button class="b" onclick="mkimg2()">&#x30b5;&#x30d6;&#x8868;&#x3092;&#x753b;&#x50cf;&#x51fa;&#x529b;</button><button class="g" onclick="dlimg2()">&#x753b;&#x50cf;&#x3092;&#x4fdd;&#x5b58;</button><button class="g" onclick="cl(2)">&#x30d7;&#x30ec;&#x30d3;&#x30e5;&#x30fc;&#x3092;&#x9589;&#x3058;&#x308b;</button></div>
+<img id="out2" alt="">
+<h2>&#x30e1;&#x30a4;&#x30f3;&#x8868;</h2>
+<div class="bar"><select id="pd"></select><button class="b" onclick="addp()">&#x6599;&#x7406;&#x3092;&#x8a08;&#x753b;&#x306b;&#x8ffd;&#x52a0;</button><button class="g" onclick="smp()">&#x30b5;&#x30f3;&#x30d7;&#x30eb;&#x306b;&#x623b;&#x3059;</button><button class="g" onclick="srtE(1)">&#x30ab;&#x30c6;&#x30b4;&#x30ea;&#x5185;&#x3092;&#x6599;&#x7406;E&#x964d;&#x9806;</button><button class="g" onclick="srtE(-1)">&#x30ab;&#x30c6;&#x30b4;&#x30ea;&#x5185;&#x3092;&#x6599;&#x7406;E&#x6607;&#x9806;</button><button class="b" onclick="cpm()">&#x8868;&#x3092;&#x30b3;&#x30d4;&#x30fc;(Excel&#x7528;)</button> &#x6599;&#x7406;&#x30a8;&#x30ca;&#x30b8;&#x30fc;: <select id="em" onchange="S.em=+this.value;render()"><option value="0">&#x5f93;&#x6765;&#x5024;</option><option value="1">&#x30ec;&#x30b7;&#x30d4;Lv70&#x30fb;FB85%</option></select> <label><input type="checkbox" id="yc" onchange="S.yc=this.checked;render()"> &#x62fe;&#x3046;&#x91cf;&#x304c;(&#x5fc5;&#x8981;&#x91cf;&#x2212;&#x5099;&#x84c4;)&#x306e;</label><input id="yv" type="number" min="0" step="0.1" style="width:60px" onchange="S.ym=Math.max(0,+this.value||0);render()">&#x500d;&#x3092;&#x8d85;&#x3048;&#x308b;&#x98df;&#x6750;&#x3092;&#x3001;&#x6700;&#x3082;&#x904e;&#x5270;&#x306b;&#x62fe;&#x3046;&#x30ab;&#x30c6;&#x30b4;&#x30ea;&#x306e;&#x8272;&#x3067;&#x8868;&#x793a;</div>
+<div class="w"><table id="tb"></table></div>
+<div class="sum" id="sm"></div>
+<div class="sum2" id="cm"></div>
+<textarea id="cb" readonly style="display:none"></textarea>
+<div class="bar"><button class="b" onclick="mkimg()">&#x753b;&#x50cf;&#x3092;&#x51fa;&#x529b;</button><button class="g" onclick="dlimg()">&#x753b;&#x50cf;&#x3092;&#x4fdd;&#x5b58;</button><button class="g" onclick="cl(1)">&#x30d7;&#x30ec;&#x30d3;&#x30e5;&#x30fc;&#x3092;&#x9589;&#x3058;&#x308b;</button></div>
+<img id="out" alt="">
+<p>&#x300c;&#x301c;&#x67a0;&#x3067;&#x62fe;&#x3048;&#x308b;&#x300d;&#x306f; &#x30ab;&#x30ec;&#x30fc;/&#x30b5;&#x30e9;&#x30c0;/&#x30c7;&#x30b6;&#x30fc;&#x30c8; &#x306e;&#x9806;&#x306e;&#x5024;&#x3067;&#x3059;&#x3002;&#x5404;&#x30ab;&#x30c6;&#x30b4;&#x30ea;&#x306e;&#x5024;&#x306f;&#x3001;&#x305d;&#x306e;&#x30ab;&#x30c6;&#x30b4;&#x30ea;&#x306e;&#x6599;&#x7406;&#x306e;&#x5fc5;&#x8981;&#x6570;&#x3060;&#x3051;&#x3092;&#x3001;&#x4e0b;&#x306e;&#x6599;&#x7406;&#x304b;&#x3089;&#x9806;&#x306b;&#x305d;&#x306e;&#x5408;&#x8a08;&#x4ee5;&#x5185;&#x3067;&#x81ea;&#x52d5;&#x7684;&#x306b;&#x7121;&#x52b9;&#x306b;&#x3057;&#x307e;&#x3059;(&#x8d64;&#x5b57;)&#x3002;&#x30b5;&#x30d6;&#x8868;&#x3067;&#x53cd;&#x6620;&#x30c1;&#x30a7;&#x30c3;&#x30af;&#x306e;&#x3042;&#x308b;&#x5206;&#x306f;&#x81ea;&#x52d5;&#x5165;&#x529b;&#x3055;&#x308c;&#x3001;&#x624b;&#x5165;&#x529b;&#x306f; 30/20/10 &#x306e;&#x5f62;&#x5f0f;&#x3067;&#x3059;(&#x6570;&#x5b57;1&#x3064;&#x306a;&#x3089;3&#x30ab;&#x30c6;&#x30b4;&#x30ea;&#x5171;&#x901a;)&#x3002;&#x6599;&#x7406;&#x306e;&#x6570;&#x5b57;&#x3092;&#x30bf;&#x30c3;&#x30d7;&#x3059;&#x308b;&#x3068;&#x3001;&#x305d;&#x306e;&#x98df;&#x6750;&#x3092;&#x5099;&#x84c4;&#x8a08;&#x7b97;&#x304b;&#x3089;&#x7121;&#x52b9;&#x306b;&#x3067;&#x304d;&#x307e;&#x3059;(&#x8d64;&#x5b57;)&#x3002;&#x9ed2;&#x5b57;=&#x5099;&#x84c4;&#x6570;&#x306b;&#x4f7f;&#x308f;&#x308c;&#x3066;&#x3044;&#x308b;&#x30ab;&#x30c6;&#x30b4;&#x30ea;&#x3001;&#x7070;&#x5b57;=&#x4f7f;&#x308f;&#x308c;&#x3066;&#x3044;&#x306a;&#x3044;&#x30ab;&#x30c6;&#x30b4;&#x30ea;&#x3002;&#x753b;&#x50cf;&#x306f;&#x9577;&#x62bc;&#x3057;(PC&#x306f;&#x53f3;&#x30af;&#x30ea;&#x30c3;&#x30af;)&#x3067;&#x3082;&#x4fdd;&#x5b58;&#x3067;&#x304d;&#x307e;&#x3059;&#x3002;</p>
+<details><summary>&#x6599;&#x7406;&#x30d7;&#x30ea;&#x30bb;&#x30c3;&#x30c8;&#x306e;&#x4f5c;&#x6210;&#x30fb;&#x7de8;&#x96c6;&#x30fb;&#x524a;&#x9664;</summary>
+<div class="bar"><select id="ps" onchange="psel(this.value)"></select><input id="pn" type="text" size="14" placeholder="&#x6599;&#x7406;&#x540d;"><input id="pde" type="number" min="0" placeholder="&#x6599;&#x7406;E(&#x5f93;&#x6765;&#x5024;)" style="width:120px"><input id="pe70" type="number" min="0" placeholder="&#x6599;&#x7406;E(Lv70,FB85%)" style="width:150px"><select id="pc"><option value="0">&#x30ab;&#x30ec;&#x30fc;&#x30fb;&#x30b7;&#x30c1;&#x30e5;&#x30fc;</option><option value="1">&#x30b5;&#x30e9;&#x30c0;</option><option value="2">&#x30c7;&#x30b6;&#x30fc;&#x30c8;&#x30fb;&#x30c9;&#x30ea;&#x30f3;&#x30af;</option></select></div>
+<div class="pg" id="pg"></div>
+<div class="bar"><button class="b" onclick="pup()">&#x4e0a;&#x66f8;&#x304d;&#x4fdd;&#x5b58;</button><button class="g" onclick="pnew()">&#x65b0;&#x898f;&#x3068;&#x3057;&#x3066;&#x4fdd;&#x5b58;</button><button class="g" id="pdb" onclick="pdel()">&#x524a;&#x9664;</button></div></details>
+<details><summary>&#x30c7;&#x30fc;&#x30bf;&#x306e;&#x66f8;&#x304d;&#x51fa;&#x3057;/&#x8aad;&#x307f;&#x8fbc;&#x307f;</summary><textarea id="ta"></textarea><div class="bar"><button class="g" onclick="ex()">&#x66f8;&#x304d;&#x51fa;&#x3057;</button><button class="g" onclick="im()">&#x8aad;&#x307f;&#x8fbc;&#x307f;</button></div></details>
+<div id="toast" style="position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:8px 14px;border-radius:8px;display:none;z-index:9"></div>
+<script>
+const N=20,MK=['','\u25cb','\u25b3','\u2606'],ML=['\u98df\u6750\u67a0\u3067\u62fe\u3048\u308b','\u30b9\u30ad\u30eb\u67a0\u3067\u62fe\u3048\u308b','\u30d2\u30fc\u30e9\u30fc\u3067\u62fe\u3048\u308b','\u706b\u529b\u67a0\u3067\u62fe\u3048\u308b','\u934b\u62e1\u5f35\u67a0\u3067\u62fe\u3048\u308b'],CN=['\u30ab\u30ec\u30fc\u30fb\u30b7\u30c1\u30e5\u30fc','\u30b5\u30e9\u30c0','\u30c7\u30b6\u30fc\u30c8\u30fb\u30c9\u30ea\u30f3\u30af'],CC=['#fde3d3','#dcf0d0','#f0d3f0'];
+const NM=['\u30ea\u30f3\u30b4','\u30df\u30eb\u30af','\u5927\u8c46','\u30df\u30c4','\u30df\u30fc\u30c8','\u30b8\u30f3\u30b8\u30e3\u30fc','\u30c8\u30de\u30c8','\u30a8\u30c3\u30b0','\u30aa\u30a4\u30eb','\u30dd\u30c6\u30c8','\u30cf\u30fc\u30d6','\u30b3\u30fc\u30f3','\u30ab\u30ab\u30aa','\u30b3\u30fc\u30d2\u30fc','\u30a2\u30dc\u30ab\u30c9','\u30ad\u30ce\u30b3','\u30cd\u30ae','\u30ab\u30dc\u30c1\u30e3','\u30b7\u30c3\u30dd','\u30ca\u30c3\u30c4'];
+const EN=[90,98,100,101,103,109,110,115,121,124,130,140,151,153,162,167,185,250,342,0];
+const P=[[0,'\u3046\u3069\u3093',[4,20,5,39,10,22,15,31]],[0,'\u30b0\u30e9\u30bf\u30f3',[1,41,8,32,9,20,14,22]],[0,'\u3081\u3056\u30d1',[2,28,6,25,13,16,15,23]],[0,'\u308c\u3093\u3053\u3093',[4,24,5,12,10,27,11,14]],[0,'\u3059\u304d\u3084\u304d',[3,26,4,26,7,22,16,27]],
+[1,'\u3054\u308d\u306d',[9,30,11,18,15,27,17,20]],[1,'\u30ef\u30ab\u30e2\u30ec',[2,22,10,30,11,25,14,28]],[1,'\u308a\u3093\u3054\u3055\u3093',[0,28,1,18,6,23,7,35]],[1,'\u307e\u3051\u3093\u304d',[4,28,8,22,9,22,13,28]],
+[2,'\u30ef\u30c3\u30d5\u30eb',[3,38,8,28,11,28,12,21]],[2,'\u30c9\u30ad\u30d1\u30f3',[3,32,6,29,7,24,17,18]],[2,'\u30a8\u30af\u30ec\u30a2',[1,26,2,22,12,30,13,24]],[2,'\u30b3\u30fc\u30e9',[0,35,5,20,13,12,16,20]],[2,'\u30de\u30ab\u30ed\u30f3',[1,10,3,17,7,25,12,25]],[2,'\u30b9\u30b3\u30fc\u30f3',[0,20,1,9,5,20,11,18]]];
+const DE={'\u3046\u3069\u3093':25539,'\u30b0\u30e9\u30bf\u30f3':24802,'\u3081\u3056\u30d1':19061,'\u3059\u304d\u3084\u304d':20655,'\u308c\u3093\u3053\u3093':13690,'\u3054\u308d\u306d':25356,'\u30ef\u30ab\u30e2\u30ec':25162,'\u308a\u3093\u3054\u3055\u3093':19293,'\u307e\u3051\u3093\u304d':20218,'\u30ef\u30c3\u30d5\u30eb':25484,'\u30c9\u30ad\u30d1\u30f3':24354,'\u30a8\u30af\u30ec\u30a2':20885,'\u30b3\u30fc\u30e9':17494,'\u30de\u30ab\u30ed\u30f3':13834,'\u30b9\u30b3\u30fc\u30f3':10925};
+const DE70={'\u3046\u3069\u3093':169145,'\u30b0\u30e9\u30bf\u30f3':164263,'\u3081\u3056\u30d1':126240,'\u3059\u304d\u3084\u304d':136798,'\u308c\u3093\u3053\u3093':90668,'\u3054\u308d\u306d':167931,'\u30ef\u30ab\u30e2\u30ec':166648,'\u308a\u3093\u3054\u3055\u3093':127777,'\u307e\u3051\u3093\u304d':133903,'\u30ef\u30c3\u30d5\u30eb':168781,'\u30c9\u30ad\u30d1\u30f3':161295,'\u30a8\u30af\u30ec\u30a2':138320,'\u30b3\u30fc\u30e9':115863,'\u30de\u30ab\u30ed\u30f3':91623,'\u30b9\u30b3\u30fc\u30f3':72357};
+const DV=p=>(S.em===1?p.e70:p.de)||0,SD=()=>!!(S.opt||OD).sd;
+const IN=['\u3046\u3069\u3093','\u30b0\u30e9\u30bf\u30f3','\u3081\u3056\u30d1','\u308c\u3093\u3053\u3093','\u30b0\u30e9\u30bf\u30f3','\u3059\u304d\u3084\u304d','\u3081\u3056\u30d1','\u308c\u3093\u3053\u3093','\u3054\u308d\u306d','\u30ef\u30ab\u30e2\u30ec','\u30ef\u30ab\u30e2\u30ec','\u308a\u3093\u3054\u3055\u3093','\u308a\u3093\u3054\u3055\u3093','\u307e\u3051\u3093\u304d','\u30ef\u30c3\u30d5\u30eb','\u30ef\u30c3\u30d5\u30eb','\u30c9\u30ad\u30d1\u30f3','\u30ef\u30c3\u30d5\u30eb','\u30a8\u30af\u30ec\u30a2','\u30b3\u30fc\u30e9','\u30de\u30ab\u30ed\u30f3','\u30b9\u30b3\u30fc\u30f3'];
+const $=id=>document.getElementById(id),esc=s=>String(s).replace(/"/g,'&quot;'),sum=a=>a.reduce((x,y)=>x+y,0);
+let S,CV,CV2;
+function mkq(a){const q=Array(N).fill(0);for(let i=0;i<a.length;i+=2)q[a[i]]=a[i+1];return q}
+function smp(){const pre=P.map((p,i)=>({id:i,c:p[0],n:p[1],q:mkq(p[2]),de:DE[p[1]]||0,e70:DE70[p[1]]||0}));S={t:'\u6599\u7406\u8a08\u753b',em:0,auto:true,nm:NM.slice(),e:EN.slice(),m:ML.map(()=>[0,1,2].map(()=>Array(N).fill(0))),st:Array(N).fill(0),pre,nid:pre.length,pk:[[],[],[]],box:[],bid:1,bt:[{id:1,n:'\u30dc\u30c3\u30af\u30b91'}],btid:2,rows:IN.map(n=>({p:pre.find(p=>p.n===n).id,x:Array(N).fill(0)}))};ED=null;render();pref();rall()}
+function save(){try{localStorage.setItem('psCook2',JSON.stringify(S))}catch(e){}}
+const PM=id=>S.pre.find(p=>p.id===id)||S.pre[0];
+function srt(){S.rows.sort((a,b)=>PM(a.p).c-PM(b.p).c)}
+function opts(sel){return CN.map((c,k)=>`<optgroup label="${c}">`+S.pre.filter(p=>p.c===k).map(p=>`<option value="${p.id}"${p.id===sel?' selected':''}>${esc(p.n)}</option>`).join('')+'</optgroup>').join('')}
+function mig(){S.em=S.em||0;S.bt=S.bt&&S.bt.length?S.bt:[{id:1,n:'\u30dc\u30c3\u30af\u30b91'}];S.btid=S.btid||(1+Math.max(0,...S.bt.map(t=>t.id)));S.pre.forEach(p=>{if(p.de===undefined)p.de=DE[p.n]||0;if(p.e70===undefined)p.e70=DE70[p.n]||0});S.m=S.m.map(r=>Array.isArray(r[0])?r:[0,1,2].map(()=>r.map(v=>+v||0)));while(S.m.length<ML.length)S.m.push([0,1,2].map(()=>Array(N).fill(0)));if(!(S.pk&&S.pk.length===3&&S.pk.every(Array.isArray)))S.pk=[S.pk||[],[],[]];
+ S.box=S.box||[];S.opt=S.opt||Object.assign({},OD);S.bid=S.bid||(1+Math.max(0,...S.box.map(b=>b.id)));
+ S.pk=S.pk.map(L=>L.map(p=>{if(p.b!==undefined)return p;const id=S.bid++;S.box.push({id,t:S.bt[0].id,n:p.n||'\u540d\u79f0\u672a\u8a2d\u5b9a',k:p.k||0,en:p.en||0,g:p.g||[0,1,2].map(()=>({i:-1,q:0}))});return{b:id,ch:p.ch,d:p.d}}));S.box.forEach(b=>{if(b.t===undefined)b.t=S.bt[0].id})}
+const BX=id=>S.box.find(b=>b.id===id);
+function EM(){const m=S.m.map(r=>r.map(a=>a.slice())),lk=ML.map(()=>[0,0,0]),ad=ML.map(()=>[0,1,2].map(()=>Array(N).fill(0))),a1=ML.map(()=>[0,1,2].map(()=>Array(N).fill(0)));
+ S.pk.forEach((L,c)=>L.forEach(p=>{const b=BX(p.b);if(!b||!p.ch)return;lk[b.k][c]=1;b.g.forEach(g=>{if(g.i>=0){ad[b.k][c][g.i]+=(+g.q||0)*(+p.d||0);a1[b.k][c][g.i]+=(+g.q||0)}})}));
+ const p1=[0,1,2].map(()=>Array(N).fill(0)),mn=[0,1,2].map(()=>Array(N).fill(0));
+ for(let k=0;k<ML.length;k++)for(let c=0;c<3;c++){if(lk[k][c]){m[k][c]=ad[k][c].map(Math.round);for(let i=0;i<N;i++)p1[c][i]+=Math.round(a1[k][c][i])}else for(let i=0;i<N;i++)mn[c][i]+=S.m[k][c][i]}
+ return{m,lk,p1,mn}}
+function pm(k,i,v){const n=v.split('/').map(x=>Math.max(0,+x.trim()||0));[0,1,2].forEach(c=>{S.m[k][c][i]=n.length===1?n[0]:(n[c]||0)});render()}
+function YL(a,em){const ym=S.ym===undefined?1.5:S.ym,r=[];for(let i=0;i<N;i++){let best=-1,bc=-1;const tt=[];for(let c=0;c<3;c++){let need=0;S.rows.forEach(rw=>{const p=PM(rw.p);if(p.c===c)need+=p.q[i]||0});if(need<=0)continue;let pk=0;em.m.forEach(m=>pk+=m[c][i]);if(pk<=0)continue;const den=need-a.st[i],ratio=den>0?pk/den:Infinity;tt.push(CN[c]+' '+(den>0?r1(ratio)+'\u500d':'\u221e\u500d(\u5099\u84c4\u3092\u9664\u304f\u5fc5\u8981\u91cf\u306a\u3057)'));if(ratio>best){best=ratio;bc=c}}
+ r.push(S.yc&&bc>=0&&best>ym+1e-9?{c:bc,t:'\u6700\u3082\u904e\u5270: '+CN[bc]+'('+tt.join(' / ')+')'}:null)}return r}
+function dsbl(Q,X,i,pt,p1,mn,dy,fm,out){const n=Q.length,lo=fm?1:0;let ds=0;
+ if(!dy){let b=pt;for(let j=n-1;j>=lo;j--){const v=Q[j][i];if(!v||(X&&X[j][i]))continue;if(v<=b){b-=v;ds+=v;if(out)out[j]=1}else break}return ds}
+ for(let d=0;d*3<n;d++){let b=(d+1)*p1+mn-ds;const top=Math.min(n-1,d*3+2),bot=Math.max(d*3,lo);for(let j=top;j>=bot;j--){const v=Q[j][i];if(!v||(X&&X[j][i]))continue;if(v<=b){b-=v;ds+=v;if(out)out[j]=1}else break}}
+ return ds}
+function A(){const em=EM(),o=S.opt||OD,dy=!!o.dy,fm=!!o.fm,ax=S.rows.map(()=>Array(N).fill(0)),cs=[0,1,2].map(()=>Array(N).fill(0));
+ for(let c=0;c<3;c++){const ix=[];S.rows.forEach((r,ri)=>{if(PM(r.p).c===c)ix.push(ri)});
+  const Q=ix.map(ri=>PM(S.rows[ri].p).q),X=ix.map(ri=>S.rows[ri].x);
+  for(let i=0;i<N;i++){let pt=0;em.m.forEach(r=>pt+=r[c][i]);const out=new Array(ix.length).fill(0),ds=dsbl(Q,X,i,pt,em.p1[c][i],em.mn[c][i],dy,fm,out);let sm=0;Q.forEach((q,j)=>{if(!X[j][i])sm+=q[i]});cs[c][i]=sm-ds;out.forEach((f,j)=>{if(f)ax[ix[j]][i]=1})}}
+ const mx=cs[0].map((_,i)=>Math.max(cs[0][i],cs[1][i],cs[2][i])),st=mx.map((v,i)=>S.auto?v:S.st[i]||0);let tot=0,en=0;st.forEach((v,i)=>{tot+=v;en+=v*S.e[i]});return{cs,mx,st,tot,en,avg:tot?en/tot:0,ax}}
+function kind(ri,r,p,i,a){if(!p.q[i])return'';if(a.st[i]>0&&!(a.cs[p.c][i]===a.mx[i]&&a.mx[i]>0))return'n';return(r.x[i]||a.ax[ri][i])?'x':'u'}
+function tx(ri,i){const x=S.rows[ri].x;x[i]=x[i]?0:1;render()}
+function dn(k){return sum(S.rows.filter(r=>PM(r.p).c===k).map(r=>DV(PM(r.p))))}
+function ECS(){const ec=[0,1,2].map(c=>{const d=dn(c),k=sum(S.pk[c].map(p=>(BX(p.b)||{en:0}).en*(+p.d||0)));return{d,k,t:d+k}});
+ const T=S.opt&&S.opt.T!==undefined?S.opt.T:20,pe=ec.map(x=>x.k),de=ec.map(x=>x.d);
+ const rg=a=>{const m=a.length?sum(a)/a.length:0,lo=m*(1-T/100),hi=m*(1+T/100);return{m,lo,hi,ok:a.every(x=>x>=lo-1e-9&&x<=hi+1e-9)}};
+ return{ec,tot:sum(ec.map(x=>x.t)),T,p:rg(pe),d:rg(de)}}
+function mv(i,d){if(SD()){say('\u81ea\u52d5\u3067\u964d\u9806\u304c\u30aa\u30f3\u306e\u305f\u3081\u3001\u624b\u52d5\u3067\u5165\u308c\u66ff\u3048\u3067\u304d\u307e\u305b\u3093');return}const j=i+d;if(j<0||j>=S.rows.length||PM(S.rows[i].p).c!==PM(S.rows[j].p).c)return;[S.rows[i],S.rows[j]]=[S.rows[j],S.rows[i]];render()}
+function tsv(){const cell=el=>{const s=el.querySelector('select');if(s)return s.selectedOptions[0]?s.selectedOptions[0].text.trim():'';const i=el.querySelector('input');if(i)return i.value;if(el.querySelector('button'))return'';return el.textContent.trim()};
+ const rows=[...$('tb').rows].map(r=>{const c=[...r.children].map(cell);return c.slice(0,22).concat(c.slice(23)).join('\t')});
+ const a=A();rows.push('','\u5099\u84c4\u5408\u8a08\t'+a.tot,'\u5408\u8a08\u57fa\u790e\u30a8\u30ca\u30b8\u30fc\t'+a.en,'\u5099\u84c4\u5e73\u5747\u57fa\u790e\u30a8\u30ca\u30b8\u30fc\t'+a.avg.toFixed(1));return rows.join('\n')}
+async function cpm(){const t=tsv(),ta=$('cb');let ok=false;
+ try{await navigator.clipboard.writeText(t);ok=true}catch(e){}
+ if(!ok){ta.value=t;ta.style.display='block';ta.select();try{ok=document.execCommand('copy')}catch(e){}}
+ if(ok){ta.style.display='none';say('\u30e1\u30a4\u30f3\u8868\u3092\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f\u3002Excel\u306b\u8cbc\u308a\u4ed8\u3051\u3066\u304f\u3060\u3055\u3044')}else{ta.value=t;ta.style.display='block';ta.select();say('\u81ea\u52d5\u30b3\u30d4\u30fc\u3067\u304d\u307e\u305b\u3093\u3067\u3057\u305f\u3002\u8868\u793a\u3055\u308c\u305f\u6b04\u306e\u5185\u5bb9\u3092\u5168\u9078\u629e\u3057\u3066\u30b3\u30d4\u30fc\u3057\u3066\u304f\u3060\u3055\u3044')}}
+function srtE(d){S.rows.sort((a,b)=>{const x=PM(a.p),y=PM(b.p);return x.c-y.c||d*(DV(y)-DV(x))});render()}
+function dl(r){S.rows.splice(r,1);render()}
+function chp(ri,v){S.rows[ri].p=+v;S.rows[ri].x=Array(N).fill(0);srt();render()}
+function addp(){if(!S.pre.length)return;S.rows.push({p:+$('pd').value,x:Array(N).fill(0)});srt();render()}
+function mo(cur){return MK.map(v=>`<option value="${v}"${v===cur?' selected':''}>${v||'\uff0d'}</option>`).join('')}
+function render(){if(SD())S.rows.sort((x,y)=>{const u=PM(x.p),w=PM(y.p);return u.c-w.c||DV(w)-DV(u)});const a=A(),em=EM(),tds=f=>{let s='';for(let i=0;i<N;i++)s+=f(i);return s};let h='';const yl=YL(a,em);
+ ML.forEach((l,k)=>{const all=em.lk[k].every(x=>x),ts=[0,1,2].map(c=>sum(em.m[k][c]));h+=`<tr><th class="l">${l}(\u30ab\u30ec\u30fc/\u30b5\u30e9\u30c0/\u30c7\u30b6\u30fc\u30c8)</th>${tds(i=>{const t=[0,1,2].map(c=>em.m[k][c][i]);return`<td${yl[i]?' class="yw" style="background:'+CC[yl[i].c]+'" title="'+esc(yl[i].t)+'"':''}><input class="pi" value="${t.some(x=>x)?t.join('/'):''}"${all?' disabled':''} onchange="pm(${k},${i},this.value)"></td>`})}<td class="t">${ts.some(x=>x)?ts.join('/'):''}</td><td></td><td></td></tr>`});
+ h+=`<tr><th class="l">\u57fa\u790e\u30a8\u30ca\u30b8\u30fc</th>${tds(i=>`<td><input type="number" value="${S.e[i]}" oninput="S.e[${i}]=+this.value||0;calc()"></td>`)}<td></td><td></td><td></td></tr>`;
+ h+=`<tr><th class="l">\u98df\u6750</th>${tds(i=>`<td${yl[i]?' class="yw" style="background:'+CC[yl[i].c]+'" title="'+esc(yl[i].t)+'"':''}><input value="${esc(S.nm[i])}" oninput="S.nm[${i}]=this.value;save()" onchange="rall()"></td>`)}<td class="t">\u5408\u8a08</td><td></td><td class="t">\u6599\u7406E${S.em?'(Lv70)':''}</td></tr>`;
+ h+=`<tr class="s"><th class="l">\u5099\u84c4\u6570</th>${tds(i=>S.auto?`<td class="t" id="sk${i}"></td>`:`<td><input type="number" id="sk${i}" value="${S.st[i]||''}" oninput="S.st[${i}]=+this.value||0;calc()"></td>`)}<td class="t" id="skt"></td><td></td><td></td></tr>`;
+ const cnt=[0,0,0];S.rows.forEach((r,ri)=>{const p=PM(r.p),ps=cnt[p.c]++;h+=`<tr class="c${p.c}${ps>0&&ps%3===0?' dv':''}"><th class="l"><div style="display:flex;align-items:center"><span class="dy">${Math.floor(ps/3)+1}\u65e5\u76ee</span><button class="mk" style="width:auto;padding:0 3px"${ri>0&&PM(S.rows[ri-1].p).c===p.c&&!SD()?'':' disabled'} onclick="mv(${ri},-1)">\u25b2</button><button class="mk" style="width:auto;padding:0 3px"${ri<S.rows.length-1&&PM(S.rows[ri+1].p).c===p.c&&!SD()?'':' disabled'} onclick="mv(${ri},1)">\u25bc</button><select style="flex:1;min-width:0" onchange="chp(${ri},this.value)">${opts(p.id)}</select></div></th>${tds(i=>{const k=kind(ri,r,p,i,a);return k?`<td class="${k}" onclick="tx(${ri},${i})">${p.q[i]}</td>`:'<td></td>'})}<td class="t">${sum(p.q)}</td><td><button class="mk" onclick="dl(${ri})">\u00d7</button></td><td class="t">${DV(p)||''}</td></tr>`});
+ CN.forEach((c,k)=>{h+=`<tr class="c${k}"><th class="l">${c}\u5408\u8a08(\u6709\u52b9\u5206)</th>${tds(i=>`<td class="t">${a.cs[k][i]||''}</td>`)}<td class="t">${sum(a.cs[k])}</td><td></td><td class="t">${dn(k)||''}</td></tr>`});
+ h+=`<tr class="s"><th class="l">\u5408\u8a08\u57fa\u790e\u30a8\u30ca\u30b8\u30fc</th>${tds(i=>`<td class="t" id="ee${i}"></td>`)}<td class="t" id="eet"></td><td></td><td></td></tr>`;
+ $('tb').innerHTML=h;$('ti').value=S.t;$('em').value=S.em||0;$('yc').checked=!!S.yc;$('yv').value=S.ym===undefined?1.5:S.ym;$('au').checked=S.auto;$('pd').innerHTML=opts();calc()}
+function calc(){const a=A();for(let i=0;i<N;i++){if(S.auto)$('sk'+i).textContent=a.st[i]||'';$('ee'+i).textContent=a.st[i]*S.e[i]||''}
+ $('skt').textContent=a.tot;$('eet').textContent=a.en;
+ $('sm').textContent='\u5099\u84c4\u5408\u8a08 '+a.tot+' / \u5408\u8a08\u57fa\u790e\u30a8\u30ca\u30b8\u30fc '+a.en+' / \u5099\u84c4\u5e73\u5747\u57fa\u790e\u30a8\u30ca\u30b8\u30fc '+a.avg.toFixed(1);
+ const e=ECS(),f=x=>x.toFixed(1);$('cm').innerHTML=CN.map((c,k)=>`${c}: \u6599\u7406E ${e.ec[k].d} + \u304d\u306e\u307fE ${e.ec[k].k} = ${e.ec[k].t}`).join('<br>')+`<br>\u7dcf\u30ab\u30c6\u30b4\u30eaE ${e.tot}<br>\u3070\u3089\u3064\u304d(T=${e.T}%): \u304d\u306e\u307fE \u5e73\u5747${f(e.p.m)} \u8a31\u5bb9${f(e.p.lo)}\u301c${f(e.p.hi)} ${e.p.ok?'\u25cb':'\u00d7'} / \u6599\u7406E \u5e73\u5747${f(e.d.m)} \u8a31\u5bb9${f(e.d.lo)}\u301c${f(e.d.hi)} ${e.d.ok?'\u25cb':'\u00d7'}`;save()}
+const r1=v=>Math.round(v*10)/10,ko=()=>[0,1,2].map(()=>({i:-1,q:0})),kopt=k=>ML.map((l,x)=>`<option value="${x}"${k===x?' selected':''}>${l.replace('\u3067\u62fe\u3048\u308b','')}</option>`).join('');
+const gopt=i=>`<option value="-1">\uff0d</option>`+S.nm.map((n,x)=>`<option value="${x}"${i===x?' selected':''}>${esc(n)}</option>`).join('');
+function rbx(){let H='';
+ S.bt.forEach(t=>{const L=S.box.map((b,i)=>[b,i]).filter(x=>x[0].t===t.id),all=L.length>0&&L.every(x=>x[0].o!==0),on=L.filter(x=>x[0].o!==0).length;
+  let h='<tr><th>\u6700\u9069\u5316</th><th>\u540d\u524d</th><th>\u5206\u985e</th>'+[1,2,3].map(n=>`<th>\u98df\u6750${n}</th><th>\u6570/\u65e5</th>`).join('')+'<th>\u304d\u306e\u307fE/\u65e5</th><th></th></tr>';
+  L.forEach(([b,i])=>{h+=`<tr><td><input type="checkbox"${b.o!==0?' checked':''} onchange="be(${i},'o',this.checked)"></td><td><input value="${esc(b.n)}" onchange="be(${i},'n',this.value)"></td><td><select onchange="be(${i},'k',this.value)">${kopt(b.k)}</select></td>`+b.g.map((g,j)=>`<td><select onchange="be(${i},'g',this.value,${j})">${gopt(g.i)}</select></td><td><input type="number" min="0" step="any" value="${g.q||''}" onchange="be(${i},'q',this.value,${j})"></td>`).join('')+`<td><input type="number" min="0" value="${b.en||''}" onchange="be(${i},'en',this.value)"></td><td><button class="mk" onclick="bkd(${i})"${BXC===b.id?' style="color:#d00;font-weight:700"':''}>${BXC===b.id?'\u524a\u9664?':'\u00d7'}</button></td></tr>`});
+  H+=`<details open><summary>${esc(t.n)}(${L.length}\u4f53\u30fb\u6700\u9069\u5316\u5bfe\u8c61${on}\u4f53)</summary><div class="bar"><input type="text" value="${esc(t.n)}" size="14" onchange="btr(${t.id},this.value)"><button class="g" onclick="btg(${t.id})"${L.length?'':' disabled'}>${all?'\u5168\u54e1\u3092\u6700\u9069\u5316\u304b\u3089\u5916\u3059':'\u5168\u54e1\u3092\u6700\u9069\u5316\u5bfe\u8c61\u306b\u3059\u308b'}</button><button class="g" onclick="bdup(${t.id})"${S.bt.length>=5?' disabled':''}>\u30dc\u30c3\u30af\u30b9\u3092\u8907\u88fd</button><button class="g" onclick="btdel(${t.id})"${S.bt.length<2?' disabled':''}${BTC===t.id?' style="color:#d00;font-weight:700"':''}>${BTC===t.id?'\u524a\u9664?(\u3082\u3046\u4e00\u5ea6\u62bc\u3059)':'\u30dc\u30c3\u30af\u30b9\u3092\u524a\u9664'}</button></div><div class="w"><table class="pt">${h}</table></div><div class="bar"><button class="b" onclick="bka(${t.id})"${L.length>=60?' disabled':''}>\u30dd\u30b1\u30e2\u30f3\u3092\u8ffd\u52a0</button></div></details>`});
+ $('bxs').innerHTML=H;$('bnew').disabled=S.bt.length>=5}
+function bnew(){if(S.bt.length>=5)return;S.bt.push({id:S.btid++,n:'\u30dc\u30c3\u30af\u30b9'+(S.bt.length+1)});rbx();render()}
+function btr(id,v){S.bt.find(t=>t.id===id).n=v||'\u30dc\u30c3\u30af\u30b9';rbx();rpk();render()}
+function btg(id){const L=S.box.filter(b=>b.t===id);if(!L.length)return;const on=L.every(b=>b.o!==0);L.forEach(b=>b.o=on?0:1);rbx();render()}
+function bdup(id){if(S.bt.length>=5)return;const t=S.bt.find(x=>x.id===id),nid=S.btid++;S.bt.splice(S.bt.indexOf(t)+1,0,{id:nid,n:t.n+'\u306e\u30b3\u30d4\u30fc'});S.box.filter(b=>b.t===id).forEach(b=>S.box.push({...JSON.parse(JSON.stringify(b)),id:S.bid++,t:nid}));rbx();rpk();render()}
+function btdel(id){if(S.bt.length<2)return;const L=S.box.filter(b=>b.t===id);if(L.length&&BTC!==id){BTC=id;rbx();say('\u3053\u306e\u30dc\u30c3\u30af\u30b9\u306e\u5168\u30dd\u30b1\u30e2\u30f3(\u30b5\u30d6\u8868\u3067\u4f7f\u7528\u4e2d\u306e\u3082\u306e\u3082)\u304c\u524a\u9664\u3055\u308c\u307e\u3059\u3002\u3082\u3046\u4e00\u5ea6\u62bc\u3059\u3068\u524a\u9664\u3057\u307e\u3059');return}BTC=null;const ids=new Set(L.map(b=>b.id));S.bt=S.bt.filter(t=>t.id!==id);S.box=S.box.filter(b=>b.t!==id);S.pk=S.pk.map(l=>l.filter(p=>!ids.has(p.b)));rbx();rpk();render()}
+const bopts=sel=>S.bt.map(t=>`<optgroup label="${esc(t.n)}">`+S.box.filter(x=>x.t===t.id).map(x=>`<option value="${x.id}"${x.id===sel?' selected':''}>${esc(x.n||'(\u540d\u524d\u306a\u3057)')}</option>`).join('')+'</optgroup>').join('');
+function be(i,f,v,j){const b=S.box[i];if(f==='g')b.g[j].i=+v;else if(f==='q')b.g[j].q=Math.max(0,+v||0);else if(f==='en')b.en=Math.max(0,+v||0);else if(f==='k')b.k=+v;else if(f==='o')b.o=v?1:0;else b.n=v;rpk();render()}
+function bka(t){t=t===undefined?S.bt[0].id:t;if(S.box.filter(b=>b.t===t).length>=60)return;S.box.push({id:S.bid++,t,n:'',k:0,en:0,o:1,g:ko()});rbx();rpk()}
+let BXC=null,BTC=null,PDC=0,TT;
+function say(t){const e=$('toast');e.textContent=t;e.style.display='block';clearTimeout(TT);TT=setTimeout(()=>e.style.display='none',2500)}
+function bkd(i){const id=S.box[i].id,used=S.pk.some(L=>L.some(p=>p.b===id));if(used&&BXC!==id){BXC=id;rbx();say('\u30b5\u30d6\u8868\u3067\u4f7f\u7528\u4e2d\u3067\u3059\u3002\u3082\u3046\u4e00\u5ea6\u62bc\u3059\u3068\u3001\u30b5\u30d6\u8868\u304b\u3089\u3082\u524a\u9664\u3057\u307e\u3059');return}BXC=null;S.box.splice(i,1);S.pk=S.pk.map(L=>L.filter(p=>p.b!==id));rbx();rpk();render()}
+function rpk(){let H='';S.pk.forEach((L,c)=>{let h=`<tr class="c${c}"><th>\u53cd\u6620</th><th>\u30dd\u30b1\u30e2\u30f3</th><th>\u5206\u985e</th><th>\u98df\u67501(\u65e5)</th><th>\u98df\u67502(\u65e5)</th><th>\u98df\u67503(\u65e5)</th><th>\u304d\u306e\u307fE/\u65e5</th><th>\u65e5\u6570</th><th>\u98df\u67501\u00d7\u65e5\u6570</th><th>\u98df\u67502\u00d7\u65e5\u6570</th><th>\u98df\u67503\u00d7\u65e5\u6570</th><th>\u304d\u306e\u307fE\u00d7\u65e5\u6570</th><th></th></tr>`,et=0,tot=Array(N).fill(0);
+ L.forEach((p,i)=>{const b=BX(p.b)||{k:0,en:0,g:ko()},d=+p.d||0;et+=b.en*d;if(p.ch)b.g.forEach(g=>{if(g.i>=0)tot[g.i]+=(+g.q||0)*d});
+  h+=`<tr><td><input type="checkbox"${p.ch?' checked':''} onchange="pe(${c},${i},'ch',this.checked)"></td><td><select onchange="pe(${c},${i},'b',this.value)">${bopts(p.b)}</select></td><td>${ML[b.k].replace('\u3067\u62fe\u3048\u308b','')}</td>`+b.g.map(g=>`<td>${g.i>=0?esc(S.nm[g.i])+' '+(+g.q||0):''}</td>`).join('')+`<td>${b.en||''}</td><td><input type="number" min="0" value="${p.d}" onchange="pe(${c},${i},'d',this.value)"></td>`+b.g.map(g=>`<td class="t">${g.i>=0?r1((+g.q||0)*d):''}</td>`).join('')+`<td class="t">${b.en*d||''}</td><td><button class="mk" onclick="pkd(${c},${i})">\u00d7</button></td></tr>`});
+ h+=`<tr class="s"><td colspan="11" style="text-align:right;padding:0 4px">\u304d\u306e\u307fE\u00d7\u65e5\u6570 \u5408\u8a08</td><td class="t">${et}</td><td></td></tr>`;
+ const tl=tot.map((v,i)=>v?S.nm[i]+' '+r1(v):'').filter(x=>x).join(' / ');
+ H+=`<h3 style="margin:8px 0 4px;font-size:14px">${CN[c]}</h3><div class="w"><table class="pt">${h}</table></div><div class="sum2">\u98df\u6750\u5408\u8a08(\u53cd\u6620\u30c1\u30a7\u30c3\u30af\u5206): ${esc(tl)||'\u306a\u3057'}</div><div class="bar"><button class="b" onclick="pka(${c})"${L.length>=10?' disabled':''}>\u30dd\u30b1\u30e2\u30f3\u3092\u8ffd\u52a0(\u6700\u592710\u4f53)</button><button class="g" onclick="srtP(${c},1)">\u304d\u306e\u307fE/\u65e5 \u964d\u9806</button><button class="g" onclick="srtP(${c},-1)">\u304d\u306e\u307fE/\u65e5 \u6607\u9806</button></div>`});
+ $('pts').innerHTML=H}
+function rall(){rbx();rpk();oload()}
+const OD={t:1000,x:2000,a:130,d:7,h:0,n:0,T:20,q:21,sd:0,dy:0,fm:0,ex:0,exn:3,exm:1.5,cap:[0,1,2].map(()=>({i:-1,v:null}))};
+function oload(){if(S.opt&&S.opt.x===undefined)S.opt.x=OD.x;if(S.opt&&S.opt.T===undefined)S.opt.T=OD.T;if(S.opt&&S.opt.q===undefined)S.opt.q=OD.q;if(S.opt&&!S.opt.cap)S.opt.cap=OD.cap.map(c=>({...c}));const o=S.opt||OD;$('ox').value=o.x;$('ot').value=o.t;$('oa').value=o.a;$('od').value=o.d;$('oh').checked=!!o.h;$('on').checked=!!o.n;$('osd').checked=!!o.sd;$('ody').checked=!!o.dy;$('ofm').checked=!!o.fm;$('ov').value=o.T;$('oq').value=o.q;$('oex').checked=!!o.ex;$('oen').value=o.exn===undefined?3:o.exn;$('oem').value=o.exm===undefined?1.5:o.exm;(o.cap||OD.cap).forEach((c,k)=>{$('ci'+k).innerHTML=gopt(c.i);$('cv'+k).value=c.v===null||c.v===undefined?'':c.v})}
+function osv(){const o=S.opt={t:Math.max(0,+$('ot').value||0),x:Math.max(0,+$('ox').value||0),a:Math.max(0,+$('oa').value||0),d:Math.max(1,Math.round(+$('od').value||1)),h:$('oh').checked?1:0,n:$('on').checked?1:0,sd:$('osd').checked?1:0,dy:$('ody').checked?1:0,fm:$('ofm').checked?1:0,T:Math.min(100,Math.max(0,+$('ov').value||0)),q:Math.max(1,Math.round(+$('oq').value||1)),ex:$('oex').checked?1:0,exn:$('oen').value===''?3:Math.max(0,Math.round(+$('oen').value)),exm:$('oem').value===''?1.5:Math.max(0,+$('oem').value),cap:[0,1,2].map(k=>({i:$('ci'+k).value===''?-1:+$('ci'+k).value,v:$('cv'+k).value===''?null:Math.max(0,+$('cv'+k).value)}))};save();return o}
+function exc(sk,NA,PA,m){const r=[];for(let i=0;i<N;i++){let best=-1;for(let c=0;c<3;c++){const nd=NA[c][i];if(nd<=0)continue;const p=PA[c][i];if(p<=0)continue;const den=nd-sk[i],ratio=den>0?p/den:Infinity;if(ratio>best)best=ratio}if(best>m+1e-9)r.push(Math.min(best,m+10)-m)}return r}
+function xpen(a,O){if(!O.ex)return 0;const k=O.exn===undefined?3:O.exn,n=a.length;if(n<=k)return 0;const b=a.slice().sort((x,y)=>x-y);let sm=0;for(let j=0;j<n-k;j++)sm+=b[j];return(n-k)/Math.max(1,k)+sm/(10*Math.max(1,k))}
+function capv(sk,o){let v=0;(o.cap||[]).forEach(c=>{if(c.i>=0&&c.v!==null&&c.v!==undefined)v+=Math.max(0,(sk[c.i]-c.v)/Math.max(1,c.v))});return v}
+function OEV(T,DL,B,D){const cs=[],ec=[],pl=[],dl=[],NA=[],PA=[],O=S.opt||OD,dy=!!O.dy,fm=!!O.fm,sd=!!O.sd;
+ for(let c=0;c<3;c++){const ad=ML.map(()=>null),a1=ML.map(()=>null),lk=ML.map(()=>0);let pe=0;
+  for(const bi of T[c]){const b=B[bi];pe+=b.en*D;lk[b.k]=1;const a=ad[b.k]||(ad[b.k]=new Array(N).fill(0)),z=a1[b.k]||(a1[b.k]=new Array(N).fill(0));for(let i=0;i<N;i++){a[i]+=b.gq[i]*D;z[i]+=b.gq[i]}}
+  const pk=new Array(N).fill(0),p1=new Array(N).fill(0),mn=new Array(N).fill(0);
+  for(let k=0;k<ML.length;k++){if(lk[k])for(let i=0;i<N;i++){pk[i]+=Math.round(ad[k][i]);p1[i]+=Math.round(a1[k][i])}else{const m=S.m[k][c];for(let i=0;i<N;i++){pk[i]+=m[i];mn[i]+=m[i]}}}
+  const L=sd?DL[c].slice().sort((x,y)=>DV(y)-DV(x)):DL[c],Q=L.map(x=>x.q),r=new Array(N).fill(0);
+  const na=new Array(N);for(let i=0;i<N;i++){let all=0;for(let j=0;j<Q.length;j++)all+=Q[j][i];na[i]=all;r[i]=all-dsbl(Q,null,i,pk[i],p1[i],mn[i],dy,fm)}
+  NA.push(na);PA.push(pk);cs.push(r);let ds=0;for(const q of L)ds+=DV(q);pl.push(pe);dl.push(ds);ec.push(pe+ds)}
+ let tot=0,en=0;const sk=[];for(let i=0;i<N;i++){const m=Math.max(cs[0][i],cs[1][i],cs[2][i]);sk[i]=m;tot+=m;en+=m*S.e[i]}
+ const avg=tot?en/tot:0,o=S.opt||OD,E=ec[0]+ec[1]+ec[2],tt=(o.T===undefined?20:o.T)/100;
+ const vr=a=>{let m=0;for(const y of a)m+=y;m/=a.length;if(!(m>0))return 0;const tol=m*tt+1e-9;let x=0;for(const y of a)x+=Math.max(0,Math.abs(y-m)-tol);return x/(m*a.length)};
+ const xa=O.ex?exc(sk,NA,PA,O.exm===undefined?1.5:O.exm):[],xn=xa.length;
+ return{E,ec,pl,dl,tot,avg,xn,v:vr(pl)+vr(dl)+capv(sk,o)+xpen(xa,O)+Math.max(0,(o.t-tot)/Math.max(1,o.t))+(o.x>0?Math.max(0,(tot-o.x)/o.x):0)+Math.max(0,(o.a-avg)/Math.max(1,o.a))}}
+let OB=0;
+function opt(){if(OB)return;const o=osv(),D=o.d,nd=3*D,dup=1,hl=o.h,pn=o.n,EB=S.box.filter(b=>b.o!==0);
+ if(o.x>0&&o.x<o.t){say('\u4e0a\u9650\u306f\u4e0b\u9650\u4ee5\u4e0a\u306b\u3057\u3066\u304f\u3060\u3055\u3044');return}
+ if(EB.length<5){say('\u6700\u9069\u5316\u306e\u5bfe\u8c61\u306e\u30dd\u30b1\u30e2\u30f3\u304c5\u4f53\u4ee5\u4e0a\u5fc5\u8981\u3067\u3059(\u30dc\u30c3\u30af\u30b9\u8868\u306e\u300c\u6700\u9069\u5316\u300d\u30c1\u30a7\u30c3\u30af\u3092\u78ba\u8a8d\u3057\u3066\u304f\u3060\u3055\u3044)');return}
+ if(!dup&&EB.length<15){say('\u30dc\u30c3\u30af\u30b9\u306b\u30dd\u30b1\u30e2\u30f3\u304c15\u4f53\u4ee5\u4e0a\u5fc5\u8981\u3067\u3059(\u30ab\u30c6\u30b4\u30ea\u9593\u3067\u540c\u3058\u30dd\u30b1\u30e2\u30f3\u306f\u4f7f\u3048\u307e\u305b\u3093)');return}
+ const PR=[0,1,2].map(c=>S.pre.filter(p=>p.c===c)),nh=EB.filter(b=>b.k===2).length;
+ if(hl&&nh<(dup?1:3)){say(dup?'\u6700\u9069\u5316\u306e\u5bfe\u8c61\u306b\u30d2\u30fc\u30e9\u30fc\u304c1\u4f53\u4ee5\u4e0a\u5fc5\u8981\u3067\u3059':'\u91cd\u8907\u306a\u3057\u3067\u306f\u3001\u6700\u9069\u5316\u306e\u5bfe\u8c61\u306b\u30d2\u30fc\u30e9\u30fc\u304c3\u4f53\u4ee5\u4e0a\u5fc5\u8981\u3067\u3059');return}
+ if(pn&&!EB.some(b=>b.k===4)){say('\u6700\u9069\u5316\u306e\u5bfe\u8c61\u306b\u934b\u62e1\u5f35\u67a0\u306e\u30dd\u30b1\u30e2\u30f3\u304c1\u4f53\u4ee5\u4e0a\u5fc5\u8981\u3067\u3059');return}
+ if(PR.some(a=>!a.length)){say('\u5404\u30ab\u30c6\u30b4\u30ea\u306b\u6599\u7406\u30d7\u30ea\u30bb\u30c3\u30c8\u304c\u5fc5\u8981\u3067\u3059');return}
+ const B=EB.map(b=>{const gq=new Array(N).fill(0);b.g.forEach(g=>{if(g.i>=0)gq[g.i]+=+g.q||0});return{id:b.id,k:b.k,en:+b.en||0,gq}});
+ const ord=B.map((_,i)=>i).sort((a,b)=>B[b].en-B[a].en),rnd=n=>Math.floor(Math.random()*n);
+ const maxE=ord.slice(0,15).reduce((s,i)=>s+B[i].en,0)*D+[0,1,2].reduce((s,c)=>s+nd*Math.max(0,...PR[c].map(DV)),1),BIG=maxE*100,t0=maxE*.05,R=3,TOT=150000,per=TOT/R;
+ const better=(a,b)=>!b||(a.v!==b.v?a.v<b.v:a.E>b.E);
+ let T,DL,curF,best=null,it=0;
+ const init=r=>{const o2=r?ord.slice().sort(()=>Math.random()-.5):ord,used=new Set();T=[0,1,2].map(()=>[]);for(let c=0;c<3;c++){const o3=r?ord.slice().sort(()=>Math.random()-.5):o2;for(const kk of[hl?2:-1,pn?4:-1])if(kk>=0)T[c].push(o3.find(i=>B[i].k===kk&&!T[c].includes(i)));for(const i of o3){if(T[c].length<5&&!T[c].includes(i))T[c].push(i)}}
+  DL=[0,1,2].map(c=>Array.from({length:nd},()=>PR[c][rnd(PR[c].length)]));const ev=OEV(T,DL,B,D);curF=ev.E-BIG*ev.v;snap(ev)};
+ const snap=ev=>{if(better(ev,best&&best.ev))best={ev,T:T.map(t=>t.slice()),DL:DL.map(l=>l.slice())}};
+ OB=1;$('ob').disabled=$('ob2').disabled=true;init(0);
+ const chunk=()=>{const end=Math.min(it+3000,TOT);
+  for(;it<end;it++){const ph=it%per;if(ph===0&&it>0)init(1);const temp=t0*Math.pow(.001,ph/per),r=Math.random();let undo;
+   if(r<.35){const c=rnd(3),p=rnd(5),ni=rnd(B.length);if(T[c].includes(ni)||(!dup&&T.some((t,x)=>x!==c&&t.includes(ni))))continue;if(hl&&!T[c].some((x,j)=>B[j===p?ni:x].k===2))continue;if(pn&&!T[c].some((x,j)=>B[j===p?ni:x].k===4))continue;const old=T[c][p];T[c][p]=ni;undo=()=>{T[c][p]=old}}
+   else if(r<.45){const c1=rnd(3),c2=rnd(3),p1=rnd(5),p2=rnd(5);if(c1===c2)continue;const a=T[c1][p1],b=T[c2][p2],ok=(c,p,n)=>(!hl||T[c].some((x,j)=>B[j===p?n:x].k===2))&&(!pn||T[c].some((x,j)=>B[j===p?n:x].k===4));if(T[c1].includes(b)||T[c2].includes(a)||!ok(c1,p1,b)||!ok(c2,p2,a))continue;T[c1][p1]=b;T[c2][p2]=a;undo=()=>{T[c1][p1]=a;T[c2][p2]=b}}
+   else if(r<.85){const c=rnd(3),p=rnd(nd),old=DL[c][p];DL[c][p]=PR[c][rnd(PR[c].length)];undo=()=>{DL[c][p]=old}}
+   else{const c=rnd(3),p=rnd(nd),q=rnd(nd);if(p===q)continue;const l=DL[c];[l[p],l[q]]=[l[q],l[p]];undo=()=>{[l[p],l[q]]=[l[q],l[p]]}}
+   const ev=OEV(T,DL,B,D),f=ev.E-BIG*ev.v;
+   if(f>=curF||Math.random()<Math.exp((f-curF)/temp)){curF=f;snap(ev)}else undo()}
+  $('or').textContent='\u8a08\u7b97\u4e2d\u2026 '+Math.round(it/TOT*100)+'%';
+  if(it<TOT){setTimeout(chunk,0);return}
+  const ev=best.ev;
+  S.pk=best.T.map(t=>t.map(i=>({b:B[i].id,ch:true,d:D})));
+  S.rows=[].concat(...best.DL.map(L=>L.map(p=>({p:p.id,x:Array(N).fill(0)}))));S.auto=true;rall();render();
+  $('or').textContent=(ev.v===0?'\u6761\u4ef6\u3092\u6e80\u305f\u3059\u7d44\u307f\u5408\u308f\u305b\u3092\u53cd\u6620\u3057\u307e\u3057\u305f\u3002':'\u6761\u4ef6\u3092\u6e80\u305f\u3059\u7d44\u307f\u5408\u308f\u305b\u304c\u898b\u3064\u304b\u3089\u306a\u304b\u3063\u305f\u305f\u3081\u3001\u6700\u3082\u8fd1\u3044\u7d50\u679c\u3092\u53cd\u6620\u3057\u307e\u3057\u305f\u3002')+' \u7dcf\u30ab\u30c6\u30b4\u30eaE '+ev.E+'(\u304d\u306e\u307fE '+sum(ev.pl)+' + \u6599\u7406E '+sum(ev.dl)+') / \u5099\u84c4\u5408\u8a08 '+ev.tot+' / \u5e73\u5747\u57fa\u790eE '+ev.avg.toFixed(1)+(S.opt&&S.opt.ex?' / \u904e\u5270\u98df\u6750 '+ev.xn+'\u7a2e':'');
+  OB=0;$('ob').disabled=$('ob2').disabled=false};
+ setTimeout(chunk,0)}
+function opt2(){if(OB)return;const o=osv(),q=o.q;
+ if(o.x>0&&o.x<o.t){say('\u4e0a\u9650\u306f\u4e0b\u9650\u4ee5\u4e0a\u306b\u3057\u3066\u304f\u3060\u3055\u3044');return}
+ const PR=[0,1,2].map(c=>S.pre.filter(p=>p.c===c));
+ if(PR.some(a=>!a.length)){say('\u5404\u30ab\u30c6\u30b4\u30ea\u306b\u6599\u7406\u30d7\u30ea\u30bb\u30c3\u30c8\u304c\u5fc5\u8981\u3067\u3059');return}
+ const em=EM(),pk=[0,1,2].map(c=>{const a=Array(N).fill(0);em.m.forEach(r=>r[c].forEach((v,i)=>a[i]+=v));return a});
+ const DEV=DL=>{const cs=[],dns=[],NA=[],PA=[];for(let c=0;c<3;c++){const L=o.sd?DL[c].slice().sort((x,y)=>DV(y)-DV(x)):DL[c],Q=L.map(x=>x.q),r=new Array(N).fill(0);let ds=0;for(const x of L)ds+=DV(x);
+   const na=new Array(N);for(let i=0;i<N;i++){let all=0;for(let j=0;j<Q.length;j++)all+=Q[j][i];na[i]=all;r[i]=all-dsbl(Q,null,i,pk[c][i],em.p1[c][i],em.mn[c][i],!!o.dy,!!o.fm)}NA.push(na);PA.push(pk[c]);cs.push(r);dns.push(ds)}
+  let tot=0,en=0;const sk=[];for(let i=0;i<N;i++){const mx=Math.max(cs[0][i],cs[1][i],cs[2][i]);sk[i]=mx;tot+=mx;en+=mx*S.e[i]}
+  const avg=tot?en/tot:0,E=sum(dns),mn=E/3,tol=mn*o.T/100+1e-9;let vb=0;if(mn>0)dns.forEach(y=>{vb+=Math.max(0,Math.abs(y-mn)-tol)/mn});
+  const xa=o.ex?exc(sk,NA,PA,o.exm===undefined?1.5:o.exm):[],xn=xa.length;
+  return{E,dns,tot,avg,xn,v:vb+capv(sk,o)+xpen(xa,o)+Math.max(0,(o.t-tot)/Math.max(1,o.t))+(o.x>0?Math.max(0,(tot-o.x)/o.x):0)+Math.max(0,(o.a-avg)/Math.max(1,o.a))}};
+ const rnd=n=>Math.floor(Math.random()*n),maxE=[0,1,2].reduce((s,c)=>s+q*Math.max(0,...PR[c].map(DV)),1),BIG=maxE*100,t0=maxE*.05,TOT=100000,per=TOT/2;
+ const better=(a,b)=>!b||(a.v!==b.v?a.v<b.v:a.E>b.E);
+ let DL,curF,best=null,it=0;
+ const snap=ev=>{if(better(ev,best&&best.ev))best={ev,DL:DL.map(l=>l.slice())}};
+ const init=()=>{DL=[0,1,2].map(c=>Array.from({length:q},()=>PR[c][rnd(PR[c].length)]));const ev=DEV(DL);curF=ev.E-BIG*ev.v;snap(ev)};
+ OB=1;$('ob').disabled=$('ob2').disabled=true;init();
+ const chunk=()=>{const end=Math.min(it+5000,TOT);
+  for(;it<end;it++){const ph=it%per;if(ph===0&&it>0)init();const temp=t0*Math.pow(.001,ph/per),r=Math.random();let undo;
+   if(r<.7){const c=rnd(3),p=rnd(q),old=DL[c][p];DL[c][p]=PR[c][rnd(PR[c].length)];undo=()=>{DL[c][p]=old}}
+   else{const c=rnd(3),p=rnd(q),p2=rnd(q);if(p===p2)continue;const l=DL[c];[l[p],l[p2]]=[l[p2],l[p]];undo=()=>{[l[p],l[p2]]=[l[p2],l[p]]}}
+   const ev=DEV(DL),f=ev.E-BIG*ev.v;
+   if(f>=curF||Math.random()<Math.exp((f-curF)/temp)){curF=f;snap(ev)}else undo()}
+  $('or').textContent='\u8a08\u7b97\u4e2d\u2026 '+Math.round(it/TOT*100)+'%';
+  if(it<TOT){setTimeout(chunk,0);return}
+  const ev=best.ev;S.rows=[].concat(...best.DL.map(L=>L.map(p=>({p:p.id,x:Array(N).fill(0)}))));S.auto=true;render();
+  $('or').textContent=(ev.v===0?'\u6761\u4ef6\u3092\u6e80\u305f\u3059\u6599\u7406\u8a08\u753b\u3092\u53cd\u6620\u3057\u307e\u3057\u305f\u3002':'\u6761\u4ef6\u3092\u6e80\u305f\u3059\u6599\u7406\u8a08\u753b\u304c\u898b\u3064\u304b\u3089\u306a\u304b\u3063\u305f\u305f\u3081\u3001\u6700\u3082\u8fd1\u3044\u7d50\u679c\u3092\u53cd\u6620\u3057\u307e\u3057\u305f\u3002')+' \u6599\u7406E\u5408\u8a08 '+ev.E+'('+CN.map((c,k)=>c+' '+ev.dns[k]).join(' / ')+') / \u5099\u84c4\u5408\u8a08 '+ev.tot+' / \u5e73\u5747\u57fa\u790eE '+ev.avg.toFixed(1)+(S.opt&&S.opt.ex?' / \u904e\u5270\u98df\u6750 '+ev.xn+'\u7a2e':'');
+  OB=0;$('ob').disabled=$('ob2').disabled=false};
+ setTimeout(chunk,0)}
+function mkimg2(){const sc=2,CW=[110,76,128,128,128,70,46,90],W=sum(CW),RH=26,rows=[];
+ S.pk.forEach((L,c)=>{rows.push({k:'t',txt:CN[c],bg:CC[c]});rows.push({k:'g',cells:['\u30dd\u30b1\u30e2\u30f3','\u5206\u985e','\u98df\u67501(\u65e5\u00d7\u65e5\u6570)','\u98df\u67502(\u65e5\u00d7\u65e5\u6570)','\u98df\u67503(\u65e5\u00d7\u65e5\u6570)','\u304d\u306e\u307fE/\u65e5','\u65e5\u6570','\u304d\u306e\u307fE\u00d7\u65e5\u6570'],bg:CC[c]});
+  let et=0;const tot=Array(N).fill(0);
+  L.filter(p=>p.ch).forEach(p=>{const b=BX(p.b)||{n:'',k:0,en:0,g:ko()},d=+p.d||0;et+=b.en*d;b.g.forEach(g=>{if(g.i>=0)tot[g.i]+=(+g.q||0)*d});
+   rows.push({k:'g',cells:[b.n||'(\u540d\u524d\u306a\u3057)',ML[b.k].replace('\u3067\u62fe\u3048\u308b',''),...b.g.map(g=>g.i>=0?S.nm[g.i]+' '+(+g.q||0)+'\u00d7'+d+'='+r1((+g.q||0)*d):''),b.en||'',d,b.en*d||''],bg:'#fff'})});
+  rows.push({k:'g',cells:['\u5408\u8a08','','','','','','',et],bg:'#eee',b:1});
+  rows.push({k:'t',txt:'\u98df\u6750\u5408\u8a08(\u53cd\u6620\u30c1\u30a7\u30c3\u30af\u5206): '+(tot.map((v,i)=>v?S.nm[i]+' '+r1(v):'').filter(x=>x).join(' / ')||'\u306a\u3057'),bg:'#fff',s:1})});
+ const hs=rows.map(r=>r.k==='t'?(r.s?24:30):RH),H=sum(hs)+8,cv=document.createElement('canvas');cv.width=W*sc;cv.height=H*sc;const g=cv.getContext('2d');g.scale(sc,sc);
+ g.fillStyle='#fff';g.fillRect(0,0,W,H);g.textBaseline='middle';
+ const F="'Hiragino Sans','Noto Sans JP',sans-serif",T=(t,x,y,w,al,b,sz)=>{t=String(t);let z=sz||13;const f=()=>g.font=(b?'bold ':'')+z+'px '+F;f();while(g.measureText(t).width>w-6&&z>7){z--;f()}g.textAlign=al;g.fillStyle='#222';g.fillText(t,al==='left'?x+4:al==='center'?x+w/2:x+w-4,y)};
+ let y=0;g.strokeStyle='#333';g.lineWidth=1;
+ rows.forEach((r,ri)=>{const h=hs[ri];g.fillStyle=r.bg;g.fillRect(0,y,W,h);
+  if(r.k==='t'){T(r.txt,0,y+h/2,W,'left',!r.s,r.s?12:16)}
+  else{let x=0;r.cells.forEach((v,i)=>{if(v!=='')T(v,x,y+h/2,CW[i],i===1?'center':i>=5?'right':'left',r.b);g.strokeRect(x+.5,y+.5,CW[i],h);x+=CW[i]})}
+  y+=h});
+ CV2=cv;$('out2').src=cv.toDataURL('image/png');$('out2').style.display='block'}
+function cl(n){const e=$(n===1?'out':'out2');e.style.display='none';e.removeAttribute('src')}
+function dlimg2(){if(!CV2)mkimg2();const a=document.createElement('a');a.href=CV2.toDataURL('image/png');a.download='pokesleep_subtables.png';a.click()}
+function pe(c,i,f,v){const p=S.pk[c][i];if(f==='b')p.b=+v;else if(f==='ch')p.ch=v;else p.d=Math.max(0,+v||0);rpk();render()}
+function pka(c){if(S.pk[c].length>=10)return;if(!S.box.length){say('\u5148\u306b\u30dc\u30c3\u30af\u30b9\u8868\u306b\u30dd\u30b1\u30e2\u30f3\u3092\u8ffd\u52a0\u3057\u3066\u304f\u3060\u3055\u3044');return}S.pk[c].push({b:S.box[0].id,ch:true,d:1});rpk();render()}
+function srtP(c,d){S.pk[c].sort((a,b)=>d*((BX(b.b)||{en:0}).en-(BX(a.b)||{en:0}).en));rpk();render()}
+function pkd(c,i){S.pk[c].splice(i,1);rpk();render()}
+let ED=null;
+function pref(){PDC=0;$('pdb').textContent='\u524a\u9664';$('ps').innerHTML='<option value="">(\u65b0\u898f\u4f5c\u6210)</option>'+opts(ED);$('ps').value=ED===null?'':ED;const p=ED===null?{n:'',c:0,q:[]}:PM(ED);$('pn').value=p.n;$('pde').value=p.de||'';$('pe70').value=p.e70||'';$('pc').value=p.c;let h='';for(let i=0;i<N;i++)h+=`<label>${esc(S.nm[i])}<input type="number" min="0" id="pq${i}" value="${p.q[i]||''}"></label>`;$('pg').innerHTML=h}
+function psel(v){ED=v===''?null:+v;pref()}
+function pread(){return{n:$('pn').value||'\u65b0\u898f\u6599\u7406',c:+$('pc').value,de:Math.max(0,+$('pde').value||0),e70:Math.max(0,+$('pe70').value||0),q:Array.from({length:N},(_,i)=>Math.max(0,+$('pq'+i).value||0))}}
+function pnew(){const p=pread();p.id=S.nid++;S.pre.push(p);ED=p.id;pref();render()}
+function pup(){if(ED===null)return pnew();Object.assign(PM(ED),pread());srt();pref();render()}
+function pdel(){if(ED===null)return;if(!PDC){PDC=1;$('pdb').textContent='\u3082\u3046\u4e00\u5ea6\u62bc\u3059\u3068\u524a\u9664';return}S.pre=S.pre.filter(p=>p.id!==ED);S.rows=S.rows.filter(r=>r.p!==ED);ED=null;pref();render()}
+function mkimg(){const a=A(),em=EM(),yl=YL(a,em),sc=2,LW=170,CW=58,TW=76,DW=80,RH=26,rows=[],CL={u:'#000',n:'#999',x:'#d00'};
+ ML.forEach((l,k)=>{if(em.m[k].some(a=>a.some(x=>x)))rows.push({l,c:NM.map((_,i)=>{const t=[0,1,2].map(c=>em.m[k][c][i]);return t.some(x=>x)?t.join('/'):''}),t:[0,1,2].map(c=>sum(em.m[k][c])).join('/'),bg:'#fff',y:yl})});
+ rows.push({l:'\u57fa\u790e\u30a8\u30ca\u30b8\u30fc',c:S.e.map(v=>v||''),bg:'#fff'},{l:'\u98df\u6750',c:S.nm,bg:'#fff',y:yl,de:S.em?'\u6599\u7406E(Lv70)':'\u6599\u7406E'},{l:'\u5099\u84c4\u6570',c:a.st.map(v=>v||''),t:a.tot,bg:'#eee',b:1});
+ const cnt=[0,0,0];S.rows.forEach((r,ri)=>{const p=PM(r.p),ps=cnt[p.c]++;rows.push({l:(Math.floor(ps/3)+1)+'\u65e5\u76ee '+p.n,dv:ps>0&&ps%3===0,de:DV(p)||'',c:p.q.map(v=>v||''),k:p.q.map((v,i)=>CL[kind(ri,r,p,i,a)]),t:sum(p.q),bg:CC[p.c],b:1})});
+ CN.forEach((c,k)=>{if(sum(a.cs[k]))rows.push({l:c+'\u5408\u8a08(\u6709\u52b9\u5206)',de:dn(k),c:a.cs[k].map(v=>v||''),t:sum(a.cs[k]),bg:CC[k],b:1})});
+ rows.push({l:'\u5408\u8a08\u57fa\u790e\u30a8\u30ca\u30b8\u30fc',c:a.st.map((v,i)=>v*S.e[i]||''),t:a.en,bg:'#eee',b:1});
+ const W=LW+CW*N+TW+DW,TH=44,FH=66,BY=TH+RH*rows.length,H=BY+FH;
+ const cv=document.createElement('canvas');cv.width=W*sc;cv.height=H*sc;const g=cv.getContext('2d');g.scale(sc,sc);
+ g.fillStyle='#fff';g.fillRect(0,0,W,H);g.textBaseline='middle';
+ const F="'Hiragino Sans','Noto Sans JP',sans-serif";
+ const T=(t,x,y,w,al,b,sz,col)=>{t=String(t);let s=sz||13;const f=()=>g.font=(b?'bold ':'')+s+'px '+F;f();while(g.measureText(t).width>w-6&&s>7){s--;f()}g.textAlign=al;g.fillStyle=col||'#222';g.fillText(t,al==='left'?x+4:al==='center'?x+w/2:x+w-4,y)};
+ T(S.t+(S.em?'(\u6599\u7406E: \u30ec\u30b7\u30d4Lv70\u30fbFB85%)':''),0,TH/2,W,'left',1,20);
+ rows.forEach((r,ri)=>{const y=TH+ri*RH;g.fillStyle=r.bg;g.fillRect(0,y,W,RH);if(r.y)r.y.forEach((t,i)=>{if(t){g.fillStyle=CC[t.c];g.fillRect(LW+i*CW,y,CW,RH)}});T(r.l,0,y+RH/2,LW,'left',r.b);
+  r.c.forEach((v,i)=>{if(v!=='')T(v,LW+i*CW,y+RH/2,CW,/^[0-9]+$/.test(String(v))?'right':'center',r.b,0,r.k&&r.k[i])});
+  if(r.t!==undefined)T(r.t,LW+CW*N,y+RH/2,TW,'right',1);if(r.de!==undefined&&r.de!=='')T(r.de,LW+CW*N+TW,y+RH/2,DW,'right',r.b)});
+ g.strokeStyle='#333';g.lineWidth=1;g.beginPath();
+ for(let i=0;i<=rows.length;i++){g.moveTo(0,TH+i*RH+.5);g.lineTo(W,TH+i*RH+.5)}
+ const xs=[.5,LW];for(let i=1;i<=N;i++)xs.push(LW+i*CW);xs.push(LW+CW*N+TW,W-.5);
+ xs.forEach(x=>{g.moveTo(x,TH);g.lineTo(x,BY)});g.stroke();g.lineWidth=2.5;rows.forEach((r,ri)=>{if(r.dv){g.beginPath();g.moveTo(0,TH+ri*RH+.5);g.lineTo(W,TH+ri*RH+.5);g.stroke()}});
+ T('\u5099\u84c4\u5408\u8a08 '+a.tot+'\u3000\u3000\u5099\u84c4\u5e73\u5747\u57fa\u790e\u30a8\u30ca\u30b8\u30fc '+a.avg.toFixed(1),0,BY+18,W,'left',1,16);{const e=ECS();T(CN.map((c,k)=>c+' '+e.ec[k].t).join(' / ')+' / \u7dcf\u30ab\u30c6\u30b4\u30eaE '+e.tot,0,BY+46,W,'left',1,14)}
+ CV=cv;$('out').src=cv.toDataURL('image/png');$('out').style.display='block'}
+function dlimg(){if(!CV)mkimg();const a=document.createElement('a');a.href=CV.toDataURL('image/png');a.download='pokesleep_plan.png';a.click()}
+function ex(){$('ta').value=btoa(unescape(encodeURIComponent(JSON.stringify(S))))}
+function im(){try{const d=JSON.parse(decodeURIComponent(escape(atob($('ta').value.trim()))));if(!d.pre||!d.rows)throw 0;S=d;mig();ED=null;render();pref();rall()}catch(e){say('\u8aad\u307f\u8fbc\u3081\u307e\u305b\u3093\u3067\u3057\u305f')}}
+(function(){try{S=JSON.parse(localStorage.getItem('psCook2'))}catch(e){}
+ if(S&&S.rows&&S.pre&&S.e){mig();render();pref();rall()}else smp()})();
+</script></body></html>
